@@ -13,6 +13,11 @@ describe Cuboid do
   end    
   
   describe "intersects?" do
+  	it "should throw an error if origin is the same" do
+  		subject1 = Cuboid.new(0,0,0)
+  		subject2 = Cuboid.new(0,0,0)
+  		expect(subject1.intersects?(subject2)).to be true
+		end
   end
 
 end
