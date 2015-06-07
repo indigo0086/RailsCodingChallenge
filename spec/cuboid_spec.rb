@@ -13,10 +13,22 @@ describe Cuboid do
   end    
   
   describe "intersects?" do
-  	it "should throw an error if origin is the same" do
+  	it "should be true if origin is the same" do
   		subject1 = Cuboid.new(0,0,0)
   		subject2 = Cuboid.new(0,0,0)
   		expect(subject1.intersects?(subject2)).to be true
+		end
+
+		it "should be true if two cuboids overlap" do
+  		subject1 = Cuboid.new(0,0,0)
+  		subject2 = Cuboid.new(0.9,0,0)
+  		expect(subject1.intersects?(subject2)).to be true
+		end
+
+		it "should be false if two cuboids do not overlap" do
+  		subject1 = Cuboid.new(0,0,0)
+  		subject2 = Cuboid.new(2,2,2)
+  		expect(subject1.intersects?(subject2)).to be false
 		end
   end
 
